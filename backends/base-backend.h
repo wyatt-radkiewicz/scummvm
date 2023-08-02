@@ -31,13 +31,24 @@
  */
 class BaseBackend : public OSystem {
 public:
+	enum x86FeatureFlags {
+		kX86NoFeatures    = 0x00,
+		kX86NotX86        = 0x00,
+		kX86FeatureSSE2   = 0x01,
+		kX86FeatureAVX2   = 0x02,
+	};
+
 	void initBackend() override;
+	bool hasFeature(Feature f) override;
 
 	using OSystem::setScaler;
 	bool setScaler(const char *name, int factor) override final;
 	void displayMessageOnOSD(const Common::U32String &msg) override;
 	void displayActivityIconOnOSD(const Graphics::Surface *icon) override {}
 	void fillScreen(uint32 col) override;
+
+private:
+	uint32 _x86features;
 };
 
 class EventsBaseBackend : virtual public BaseBackend, Common::EventSource {
