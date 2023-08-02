@@ -294,7 +294,7 @@ public:
 					 const TSpriteBlendMode blendMode = BLEND_NORMAL,
 					 const AlphaType alphaType = ALPHA_FULL);
 
-	friend class TransparentSurface;
+	friend struct TransparentSurface;
 }; // End of class BlendBlit
 
 /** @} */

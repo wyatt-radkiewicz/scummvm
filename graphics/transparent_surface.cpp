@@ -171,7 +171,7 @@ Common::Rect TransparentSurface::blitClip(Graphics::Surface &target, Common::Rec
 	retSize.setWidth(0);
 	retSize.setHeight(0);
 	// Check if we need to draw anything at all
-	int ca = (color >> kAModShift) & 0xff;
+	int ca = (color >> BlendBlit::kAModShift) & 0xff;
 
 	if (ca == 0) {
 		return retSize;
